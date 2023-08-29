@@ -8,6 +8,6 @@
 
 [project link](https://www.youtube.com/watch?v=brcHK3P6ChQ)
 
-# made by
+# used
 
 - styled-components
