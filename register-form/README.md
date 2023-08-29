@@ -7,3 +7,7 @@
 # Cloned by
 
 [project link](https://www.youtube.com/watch?v=brcHK3P6ChQ)
+
+# made by
+
+- styled-components
