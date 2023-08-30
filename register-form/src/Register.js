@@ -2,6 +2,8 @@ import { useState } from "react";
 import { styled } from "styled-components";
 import { AiFillInfoCircle } from "react-icons/ai";
 
+const REGISTER_URL = "/register";
+
 function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -33,10 +35,45 @@ function Register() {
     setConfirmedPassword(userpasswordInput);
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!usWarning || !pWarning || !pcWarning) {
+      alert("Invalid Entry");
+      return;
+    }
+
+    try {
+      const response = await axios.post(
+        REGISTER_URL,
+        JSON.stringify({ username, password }),
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
+      );
+      console.log(response?.data);
+      console.log(response?.accessToken);
+      console.log(JSON.stringify(response));
+
+      setUsername("");
+      setPassword("");
+      setConfirmedPassword("");
+    } catch (err) {
+      if (!err?.response) {
+        console.log("No Server Response");
+      } else if (err.response?.status === 409) {
+        console.log("Username Taken");
+      } else {
+        console.log("Registration Failed");
+      }
+    }
+  };
+
   return (
     <Register_container>
       <Title>Register</Title>
-      <form>
+      <form onSubmit={handleSubmit}>
         <Section>
           <div>
             <label htmlFor="username">Username</label>
