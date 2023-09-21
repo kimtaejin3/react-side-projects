@@ -21,3 +21,24 @@ register-form/.env.production.local
 register-form/npm-debug.log*
 register-form/yarn-debug.log*
 register-form/yarn-error.log*
+
+pokemon/node_modules
+pokemon/.pnp
+pokemon/.pnp.js
+
+# testing
+pokemon/coverage
+
+# production
+pokemon/build
+
+# misc
+pokemon/.DS_Store
+pokemon/.env.local
+pokemon/.env.development.local
+pokemon/.env.test.local
+pokemon/.env.production.local
+
+pokemon/npm-debug.log*
+pokemon/yarn-debug.log*
+pokemon/yarn-error.log*
